@@ -17,6 +17,6 @@ runs:
       working-directory: ${{inputs.work-dir}}
       run: npm ci
     - name: Run Unit Tests
-      run: npm run test
-      working-directory: ${{inputs.work-dir}}
       shell: bash
+      working-directory: ${{inputs.work-dir}}
+      run: npm run test
