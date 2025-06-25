@@ -3,21 +3,20 @@ description: "My custom Action"
 
 inputs:
   work-dir:
-    description: WorkingDir
-    default: '.'
-
+     description: WorkingDir
+     default: '.'
 runs:
-    using: composite
-    steps:
-        - name: Setup Node
-          uses: actions/setup-node@v4
-          with:
-            node-version: ${{env.NODE_VERSION}}
-        - name: Install Dependencies
-          shell: bash
-          Working-directory: ${{inputs.work-dir}}
-          run: npm ci
-        - name: Run unit test
-          shell: bash
-          Working-directory: ${{inputs.work-dir}}
-          run: npm run test
+  using: composite
+  steps: 
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{env.NODE_VERSION}}
+    - name: Install Dependencies
+      shell: bash
+      working-directory: ${{inputs.work-dir}}
+      run: npm ci
+    - name: Run Unit Tests
+      run: npm run test
+      working-directory: ${{inputs.work-dir}}
+      shell: bash
